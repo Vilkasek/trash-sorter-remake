@@ -1,24 +1,36 @@
 #include "raylib.h"
 
-int main(void) {
-  const int screenWidth = 800;
-  const int screenHeight = 450;
+#define WINDOW_WIDTH 1600
+#define WINDOW_HEIGHT 900
 
-  InitWindow(screenWidth, screenHeight, "Moja pierwsza gra w Raylib!");
-
+void init() {
+  InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Trash Sorter");
   SetTargetFPS(60);
+}
+
+void update() {}
+
+void render() {
+  BeginDrawing();
+
+  ClearBackground(RAYWHITE);
+
+  DrawText("Super! Shit is alive!", 190, 200, 20, LIGHTGRAY);
+
+  EndDrawing();
+}
+
+void deinit() { CloseWindow(); }
+
+int main(void) {
+  init();
 
   while (!WindowShouldClose()) {
-    BeginDrawing();
-
-    ClearBackground(RAYWHITE);
-
-    DrawText("Super! Shit is alive!", 190, 200, 20, LIGHTGRAY);
-
-    EndDrawing();
+    update();
+    render();
   }
 
-  CloseWindow();
+  deinit();
 
   return 0;
 }
